@@ -18,6 +18,6 @@ def CustomChatGPT(user_input):
     return ChatGPT_reply
 
 
-demo = gradio.Interface(fn=CustomChatGPT, inputs="text", outputs="text", title="Alex's Web Chatbot")
+demo = gradio.Interface(fn=CustomChatGPT, inputs="text", outputs="text", title="Bot's name")
 
 demo.launch(share=True)
