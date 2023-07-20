@@ -3,6 +3,7 @@ from telebot import TeleBot
 from telebot import types
 import os
 from alive1 import keep_alive
+
 openai.api_key = os.getenv("ai_key")
 
 TOKEN = os.getenv("tg_key")
@@ -10,10 +11,12 @@ bot = TeleBot(TOKEN)
 
 keep_alive()
 
+#If command not supported bot will send message about it
 def handle_command(chat_id, text):
     bot.send_message(chat_id, "Command not supported.")
 
 
+#Function that reacts on command start
 @bot.message_handler(commands=['start'])
 def start(message):
     welcome_message = "Hello," + message.from_user.first_name + ' ' + message.from_user.last_name
@@ -22,6 +25,7 @@ def start(message):
     bot.send_message(message.chat.id, info)
 
 
+#Fuction that reacts on any text user typed
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     
@@ -36,7 +40,7 @@ def handle_text(message):
         # Process user messages
         handle_user_message(chat_id, text)
 
-
+#Functions that handles information about message
 def handle_user_message(chat_id, text):
     # Call the OpenAI ChatGPT API to get a response
     response = chat_with_gpt(text)
@@ -58,4 +62,5 @@ def chat_with_gpt(text):
 
     return response.choices[0].text.strip()
 
+#Bot looks for updates
 bot.polling(none_stop=True)
