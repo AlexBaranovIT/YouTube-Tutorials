@@ -3,7 +3,7 @@ from telebot import TeleBot
 TOKEN = 'Your Bot token from BotFather'
 bot = TeleBot(TOKEN)
 
-
+#Function that reacts on command start and sends welcome message
 @bot.message_handler(commands=["start"])
 def start(message):
     bot.send_message(message.chat.id, 'Hello!')
