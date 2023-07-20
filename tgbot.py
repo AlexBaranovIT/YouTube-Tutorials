@@ -8,7 +8,7 @@ bot = TeleBot(TOKEN)
 def start(message):
     bot.send_message(message.chat.id, 'Hello!')
 
-
+#Fuction that reacts on any text user typed, and send him echo response
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     bot.send_message(message.from_user.id, message.text)
