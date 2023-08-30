@@ -14,7 +14,7 @@ keep_alive()
 #If command not supported bot will send message about it
 def handle_command(chat_id, text):
     bot.send_message(chat_id, "Command not supported.")
-
+ 
 
 #Function that reacts on command start
 @bot.message_handler(commands=['start'])
