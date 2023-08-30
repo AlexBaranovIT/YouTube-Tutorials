@@ -1,6 +1,6 @@
 import openai
 import gradio
-
+ 
 openai.api_key = "Your API key from openai.com"
 
 messages = [
