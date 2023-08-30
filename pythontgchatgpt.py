@@ -3,7 +3,7 @@ from telebot import TeleBot
 from telebot import types
 import os
 from alive1 import keep_alive
-
+ 
 openai.api_key = os.getenv("ai_key")
 
 TOKEN = os.getenv("tg_key")
